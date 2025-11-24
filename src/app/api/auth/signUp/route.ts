@@ -3,9 +3,25 @@ import { signupUser } from "./controller/signUpController";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, phoneNumber, address } = await req.json();
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+      phoneNumber,
+      address,
+    } = await req.json();
 
-    const result = await signupUser({ email, password, phoneNumber, address });
+    const result = await signupUser({
+      firstName,
+      lastName,
+      email,
+      password,
+      confirmPassword,
+      phoneNumber,
+      address,
+    });
 
     if ("error" in result) {
       return NextResponse.json({ message: result.error }, { status: 400 });

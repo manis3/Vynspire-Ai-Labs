@@ -7,8 +7,12 @@ export async function POST(req: NextRequest) {
   const result = await authenticateUser(email, password);
 
   if ("error" in result) {
-    return NextResponse.json({ message: result.error }, { status: 401 });
+    return NextResponse.json(result.error);
   }
 
-  return NextResponse.json({ accessToken: result.accessToken });
+  return NextResponse.json({
+    message: "Login Successful!",
+    accessToken: result.accessToken,
+    success: true,
+  });
 }

@@ -3,9 +3,11 @@ import { InputWithErrorMessage } from "@/components/ui/input";
 import useLogin from "./hooks/useLogin";
 import { ButtonWithLoader } from "@/components/ui/button";
 import FormWrapper from "@/components/ui/form/formWrapper";
+import Link from "next/link";
 
 export default function Login() {
-  const { register, handleSubmit, errors, onSubmit } = useLogin();
+  const { register, handleSubmit, errors, onSubmit, isUsingBeingAuthenticate } =
+    useLogin();
   return (
     <FormWrapper title="Login">
       <form
@@ -31,11 +33,17 @@ export default function Login() {
             placeholder="*****************"
             type="Password"
           />
+          <Link
+            href="/signup"
+            className="w-full text-end hover:underline underline-offset-2"
+          >
+            Create New Account
+          </Link>
         </div>
         <ButtonWithLoader
           buttonWithLoaderClassName="!w-full rounded-sm font-inter font-medium text-sm text-text leading-6"
           type={"submit"}
-          // loading={isUserLogginIn}
+          loading={isUsingBeingAuthenticate}
         >
           Login
         </ButtonWithLoader>

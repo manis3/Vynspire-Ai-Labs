@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Nunito, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import PageWrapper from "./pageWrapper";
+import { Toaster } from "@/components/ui/sooner";
 
 export const metadata: Metadata = {
   title: "Vynspire Ai Labs",
@@ -46,6 +47,7 @@ export default function RootLayout({
         className={`${robotoFlex.variable} ${nunito.variable} ${inter.variable} w-full max-h-screen overflow-auto bg-background antialiased`}
       >
         <PageWrapper>{children}</PageWrapper>
+        <Toaster />
       </body>
     </html>
   );

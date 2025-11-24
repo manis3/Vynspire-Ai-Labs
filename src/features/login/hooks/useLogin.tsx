@@ -1,3 +1,4 @@
+import useAuthenticateUser from "@/api-services/mutations/users/useAuthenticateUser";
 import {
   loginFormDefaultValue,
   loginFormSchema,
@@ -7,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
 export default function useLogin() {
+  const { authenticateUser, isUsingBeingAuthenticate } = useAuthenticateUser();
   const {
     register,
     handleSubmit,
@@ -18,8 +20,7 @@ export default function useLogin() {
   });
 
   const onSubmit = async (data: LoginFormSchema) => {
-    console.log(data, "data from login user");
-    // await loginUser(data);
+    await authenticateUser(data);
   };
 
   return {
@@ -27,5 +28,6 @@ export default function useLogin() {
     handleSubmit,
     errors,
     onSubmit,
+    isUsingBeingAuthenticate,
   };
 }

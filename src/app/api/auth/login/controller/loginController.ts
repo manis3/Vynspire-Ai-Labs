@@ -5,10 +5,7 @@ import { IUsers } from "../types/login.types";
 import jwt from "jsonwebtoken";
 import { AUTH_SECRET } from "@/secrets/secrets";
 
-const errorMessage = [
-  { message: "Invalid email and password" },
-  { status: 404 },
-];
+const errorMessage = { message: "Invalid email and password", status: 404 };
 
 export async function authenticateUser(email: string, password: string) {
   const usersPath = path.join(process.cwd(), "data/users/users.json");

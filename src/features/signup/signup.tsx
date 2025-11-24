@@ -1,12 +1,19 @@
 "use client";
 import FormWrapper from "@/components/ui/form/formWrapper";
 import { InputWithErrorMessage } from "@/components/ui/input";
-import { inputFields } from "@/consts/user/user-consts";
 import useSignup from "./hooks/useSignup";
 import { ButtonWithLoader } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Signup() {
-  const { handleSubmit, onSubmit, register, errors } = useSignup();
+  const {
+    handleSubmit,
+    onSubmit,
+    register,
+    errors,
+    isNewUserBeingCreated,
+    handleBack,
+  } = useSignup();
   return (
     <FormWrapper title="Signup">
       <form
@@ -80,13 +87,25 @@ export default function Signup() {
           placeholder=""
           type="text"
         />
+        <p className="mt-4 text-end">
+          Already have an account?
+          <Link href={"/"} className="hover:underline underline-offset-2">
+            {" "}
+            Login
+          </Link>
+        </p>
 
         <div className="inline-flex justify-end gap-4 mt-4 flex-col lg:flex-row">
-          <ButtonWithLoader variant={"secondary"}>Back</ButtonWithLoader>
+          <ButtonWithLoader
+            variant={"secondary"}
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => handleBack(e)}
+          >
+            Cancel
+          </ButtonWithLoader>
           <ButtonWithLoader
             buttonWithLoaderClassName="text-text"
             type="submit"
-            //   loading={isLoading}
+            loading={isNewUserBeingCreated}
           >
             Sign up
           </ButtonWithLoader>

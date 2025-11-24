@@ -1,12 +1,16 @@
+import useSignupNewUser from "@/api-services/mutations/users/useSignupUser";
 import {
   newUserSchema,
   NewUserSchema,
   newUserSchemaDefaultValue,
 } from "@/schema/user/signup/userSignupSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function useSignup() {
+  const router = useRouter();
+  const { signupNewUser, isNewUserBeingCreated } = useSignupNewUser();
   const {
     handleSubmit,
     register,
@@ -18,7 +22,12 @@ export default function useSignup() {
   });
 
   const onSubmit = async (data: NewUserSchema) => {
-    console.log(data, "create user ko data");
+    await signupNewUser(data);
+  };
+
+  const handleBack = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    router.push("/");
   };
 
   return {
@@ -26,5 +35,7 @@ export default function useSignup() {
     register,
     errors,
     onSubmit,
+    isNewUserBeingCreated,
+    handleBack,
   };
 }
