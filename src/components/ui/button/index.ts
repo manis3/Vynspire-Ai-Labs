@@ -1,2 +1,3 @@
 export * from "./default";
-export * from "./ButtonWithLoader";
+export * from "./buttonWithLoader";
+export * from "./buttonWithDropdownIcon";

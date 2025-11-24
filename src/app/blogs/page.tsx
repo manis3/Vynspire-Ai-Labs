@@ -1,3 +1,9 @@
+import Blogs from "@/features/blogs/blogs";
+
 export default function page() {
-  return <div>This is blog page</div>;
+  return (
+    <div className="w-full p-8">
+      <Blogs />
+    </div>
+  );
 }

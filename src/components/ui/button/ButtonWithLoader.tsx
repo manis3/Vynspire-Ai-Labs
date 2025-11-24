@@ -18,7 +18,7 @@ export function ButtonWithLoader({
       variant={variant}
       size={size}
       className={cn(
-        "",
+        "cursor-pointer",
         {
           "opacity-50 cursor-not-allowed": disabled,
         },
