@@ -25,6 +25,7 @@
   --gains-boro: #dcdcdc;
   --ice-berg: #d0e7f9;
    --off-white: #e3e9ee;
+   --snow-flake-color: #f0f0f0;
 }
 
 .dark {
@@ -42,6 +43,8 @@
   --gains-boro: #555555;
   --ice-berg: #0f172a;
   --off-white: #1f262c;
+  --snow-flake-color: #2d2d2d;
+
 
 }
 @theme {
@@ -65,6 +68,8 @@
   --color-border-gainsBoro: var(--gains-boro);
   --color-border-iceBerg: var(--ice-berg);
   --color-border-error: var(--crimson);
+  --color-border-snowFlake: var(--snow-flake-color);
+
 
   --color-searchInputBorder: var(--off-white);
 }
