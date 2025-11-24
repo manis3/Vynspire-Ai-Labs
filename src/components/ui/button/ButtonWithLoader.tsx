@@ -11,12 +11,14 @@ export function ButtonWithLoader({
   disabled,
   variant,
   size,
+  buttonTextClassName,
 }: IButtonWithLoaderProps) {
   return (
     <Button
       variant={variant}
       size={size}
       className={cn(
+        "",
         {
           "opacity-50 cursor-not-allowed": disabled,
         },
@@ -33,7 +35,7 @@ export function ButtonWithLoader({
         <Loader />
       </div>
       <p
-        className={cn("block", {
+        className={cn(buttonTextClassName, {
           hidden: loading,
         })}
       >

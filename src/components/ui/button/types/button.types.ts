@@ -7,4 +7,5 @@ export interface IButtonWithLoaderProps extends React.ComponentProps<"button"> {
   loading?: boolean;
   variant?: "link" | "default" | "outline" | "secondary" | "ghost" | null;
   size?: IButtonSize;
+  buttonTextClassName?: string;
 }

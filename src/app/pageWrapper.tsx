@@ -1,5 +1,6 @@
 "use client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 
 export default function PageWrapper({ children }: { children: ReactNode }) {

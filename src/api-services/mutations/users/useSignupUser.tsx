@@ -1,9 +1,12 @@
+import { PUBLIC_ROUTE } from "@/enum/routes/authRoute";
 import { NewUserSchema } from "@/schema/user/signup/userSignupSchema";
 import useAxiosInstance from "@/services/useAxiosInstance";
 import { useMutation } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export default function useSignupNewUser() {
+  const router = useRouter();
   const { axiosInstance } = useAxiosInstance();
 
   const { mutateAsync, isPending } = useMutation<
@@ -18,6 +21,7 @@ export default function useSignupNewUser() {
       if (res) {
         //@ts-expect-error message type is unknown
         toast.success(res?.message);
+        router.push(PUBLIC_ROUTE.LOGIN);
       }
     },
     onError: (err) => {

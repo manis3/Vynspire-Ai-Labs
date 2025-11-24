@@ -24,29 +24,36 @@
   --lavender: #e6e6fa;
   --gains-boro: #dcdcdc;
   --ice-berg: #d0e7f9;
-   --off-white: #e3e9ee;
-   --snow-flake-color: #f0f0f0;
+  --off-white: #e3e9ee;
+  --snow-flake-color: #f0f0f0;
+
+  --background: var(--white);
+  --foreground: var(--ghost-white);
+
 }
 
 .dark {
-  --white: #f9f9f9;
-  --ghost-white: #1f1f1f;
-  --light-green: #22c55e;
-  --crimson: #ff4c4c;
-  --warning-color: #f59e0b;
-  --blue: #3b82f6;
-  --text-primary: #f3f4f6;
+  --ghost-white: #1a1a1a;
+  --light-green: #1f7c35;
+  --crimson: #b31232;
+  --warning-color: #e6b800;
+  --blue: #1e294f;
+  --text-primary: #e5e7eb;
   --text-secondary: #9ca3af;
   --dark: #111827;
   --stale-gray: #6b7280;
-  --lavender: #4b4266;
-  --gains-boro: #555555;
-  --ice-berg: #0f172a;
-  --off-white: #1f262c;
-  --snow-flake-color: #2d2d2d;
+  --lavender: #b8b8d9;
+  --gains-boro: #4b5563;
+  --ice-berg: #3a4d5d;
+  --off-white: #2d3238;
+  --snow-flake-color: #222222;
 
+  --background: var(--dark);
+  --foreground: var(--ghost-white);
 
 }
+
+
 @theme {
 
   --font-sourceSansPro: var(--font-sourceSansPro);
@@ -54,8 +61,8 @@
   --font-roboto: var(--font-roboto-flex);
   --font-inter: var(--font-inter);
 
-  --color-background: var(--white);
-  --color-foreground: var(--ghost-white);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
   --success: var(--light-green);
   --error: var(--crimson);

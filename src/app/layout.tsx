@@ -3,6 +3,7 @@ import { Inter, Nunito, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 import PageWrapper from "./pageWrapper";
 import { Toaster } from "@/components/ui/sooner";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Vynspire Ai Labs",
@@ -42,12 +43,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${robotoFlex.variable} ${nunito.variable} ${inter.variable} w-full max-h-screen overflow-auto bg-background antialiased`}
+        className="w-full max-h-screen overflow-auto bg-background antialiased"
+        suppressHydrationWarning
       >
-        <PageWrapper>{children}</PageWrapper>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <PageWrapper>{children}</PageWrapper>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

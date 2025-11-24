@@ -105,6 +105,7 @@ export default function Signup() {
           <ButtonWithLoader
             buttonWithLoaderClassName="text-text"
             type="submit"
+            buttonTextClassName="text-text"
             loading={isNewUserBeingCreated}
           >
             Sign up

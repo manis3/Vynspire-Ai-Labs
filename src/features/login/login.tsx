@@ -14,7 +14,7 @@ export default function Login() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center justify-center gap-"
       >
-        <div className="flex flex-col items-center justify-center gap-6 py-4">
+        <div className="flex flex-col items-center justify-center gap-6 py-4  ">
           <InputWithErrorMessage
             label="Email/UserName"
             error={errors.email}
@@ -41,8 +41,9 @@ export default function Login() {
           </Link>
         </div>
         <ButtonWithLoader
-          buttonWithLoaderClassName="!w-full rounded-sm font-inter font-medium text-sm text-text leading-6"
+          buttonWithLoaderClassName="!w-full rounded-sm font-inter font-medium  text-sm  leading-6"
           type={"submit"}
+          buttonTextClassName="text-text"
           loading={isUsingBeingAuthenticate}
         >
           Login
