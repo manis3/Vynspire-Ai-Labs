@@ -24,6 +24,7 @@
   --lavender: #e6e6fa;
   --gains-boro: #dcdcdc;
   --ice-berg: #d0e7f9;
+   --off-white: #e3e9ee;
 }
 
 .dark {
@@ -40,6 +41,8 @@
   --lavender: #4b4266;
   --gains-boro: #555555;
   --ice-berg: #0f172a;
+  --off-white: #1f262c;
+
 }
 @theme {
   --color-background: var(--white);
@@ -61,6 +64,9 @@
   --color-border-lavender: var(--lavender);
   --color-border-gainsBoro: var(--gains-boro);
   --color-border-iceBerg: var(--ice-berg);
+  --color-border-error: var(--crimson);
+
+  --color-searchInputBorder: var(--off-white);
 }
 
 .html {

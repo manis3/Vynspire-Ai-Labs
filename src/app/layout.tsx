@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Inter,
-  Nunito,
-  Roboto_Flex,
-} from "next/font/google";
+import { Inter, Nunito, Roboto_Flex } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {

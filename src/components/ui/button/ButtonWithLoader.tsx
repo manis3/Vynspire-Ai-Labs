@@ -1,7 +1,7 @@
 import cn from "@/utils/cn";
 import { Loader } from "../loader";
 import { Button } from "./default";
-import { IButtonWithLoaderProps } from "./types/buttonWithLoader";
+import { IButtonWithLoaderProps } from "./types/button.types";
 
 export function ButtonWithLoader({
   buttonWithLoaderClassName,
