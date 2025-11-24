@@ -10,7 +10,7 @@ export default function Login() {
     <FormWrapper title="Login">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-center gap-8"
+        className="flex flex-col items-center justify-center gap-"
       >
         <div className="flex flex-col items-center justify-center gap-6 py-4">
           <InputWithErrorMessage

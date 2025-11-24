@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs";
 import { IUsers } from "../../login/types/login.types";
 
 interface SignupInput {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   phoneNumber: number | string;
@@ -21,6 +23,7 @@ export async function signupUser(data: SignupInput) {
   const hashedPassword = await bcrypt.hash(data.password, 10);
   const newUser: IUsers = {
     id: Date.now(),
+    name: `${data?.firstName} ${data?.lastName}`,
     email: data.email,
     password: hashedPassword,
     phoneNumber: data.phoneNumber,
