@@ -1,26 +1,73 @@
 @import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@plugin 'tailwind-scrollbar';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fonts */
+  --font-sourceSansPro: "Source Sans Pro", "sans-serif";
+  --font-nunito: "Nunito", sans-serif;
+  --font-roboto-flex: "Roboto Flex", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  /* Colors */
+  --ghost-white: #f8f8f8;
+  --white: #ffffff;
+  --light-green: #28a745;
+  --crimson: #dc143c;
+  --warning-color: #ffcc00;
+  --blue: #007bff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --dark: #1f2937;
+  --stale-gray: #9ca3af;
+  --lavender: #e6e6fa;
+  --gains-boro: #dcdcdc;
+  --ice-berg: #d0e7f9;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --white: #f9f9f9;
+  --ghost-white: #1f1f1f;
+  --light-green: #22c55e;
+  --crimson: #ff4c4c;
+  --warning-color: #f59e0b;
+  --blue: #3b82f6;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --dark: #111827;
+  --stale-gray: #6b7280;
+  --lavender: #4b4266;
+  --gains-boro: #555555;
+  --ice-berg: #0f172a;
+}
+@theme {
+  --color-background: var(--white);
+  --color-foreground: var(--ghost-white);
+
+  --success: var(--light-green);
+  --error: var(--crimson);
+  --warning: var(--warning-color);
+
+  --color-buttonPrimary: var(--blue);
+  --color-buttonOutlineBorder: var(--blue);
+  
+  --color-text: var(--white);
+  --color-text-Primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-textDark: var(--dark);
+  --color-text-disable: var(--stale-gray);
+
+  --color-border-lavender: var(--lavender);
+  --color-border-gainsBoro: var(--gains-boro);
+  --color-border-iceBerg: var(--ice-berg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-scrollbar {
+  display: none;
 }
