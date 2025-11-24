@@ -22,7 +22,7 @@ export default function useAuthenticateUser() {
       const data = res?.data;
       if (!data?.accessToken) return toast.error(data?.message);
 
-      Cookies.set("token", data?.token, { secure: false, expires: 1 });
+      Cookies.set("token", data?.accessToken, { secure: false, expires: 1 });
       toast.success(data?.message);
 
       router.push(`${PROTECTED_ROUTE.BLOGS_LIST}`);

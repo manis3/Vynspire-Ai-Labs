@@ -3,16 +3,6 @@ import path from "path";
 import bcrypt from "bcryptjs";
 import { IUsers } from "../../login/types/login.types";
 
-interface SignupInput {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  phoneNumber: number | string;
-  address: string;
-}
-
 export async function signupUser(data: SignupInput) {
   const usersPath = path.join(process.cwd(), "data/users/users.json");
 
