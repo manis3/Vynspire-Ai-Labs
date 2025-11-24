@@ -16,7 +16,7 @@
   --light-green: #28a745;
   --crimson: #dc143c;
   --warning-color: #ffcc00;
-  --blue: #007bff;
+  --blue: #2c3a77;
   --text-primary: #111827;
   --text-secondary: #6b7280;
   --dark: #1f2937;
@@ -48,6 +48,12 @@
 
 }
 @theme {
+
+  --font-sourceSansPro: var(--font-sourceSansPro);
+  --font-nunito: var(--font-nunito);
+  --font-roboto: var(--font-roboto-flex);
+  --font-inter: var(--font-inter);
+
   --color-background: var(--white);
   --color-foreground: var(--ghost-white);
 

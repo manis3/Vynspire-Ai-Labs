@@ -5,7 +5,7 @@ export default function middleware(req: NextRequest) {
   const response = NextResponse.next();
 
   if (pathname === "/" || pathname === "/login") {
-    return NextResponse.rewrite(new URL("/api/auth/login", req.url));
+    return NextResponse.rewrite(new URL("/login", req.url));
   }
 
   return response;

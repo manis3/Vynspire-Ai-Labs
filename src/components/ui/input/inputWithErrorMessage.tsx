@@ -22,7 +22,9 @@ export function InputWithErrorMessage({
         className,
       )}
     >
-      <span className={cn("font-medium text-sm", labelClassName)}>{label}</span>
+      <span className={cn("font-medium text-sm font-roboto", labelClassName)}>
+        {label}
+      </span>
       <Input
         type={type}
         placeholder={placeholder}
