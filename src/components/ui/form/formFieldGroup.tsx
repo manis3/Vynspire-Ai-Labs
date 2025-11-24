@@ -1,17 +1,12 @@
 import cn from "@/utils/cn";
-import { ReactNode } from "react";
+import { IFormFieldGroup } from "./types/form.types";
 
 export function FormFieldGroup({
   wrapperClassName,
   labelClassName,
   title,
   children,
-}: {
-  wrapperClassName?: string;
-  labelClassName?: string;
-  title: string;
-  children: ReactNode;
-}) {
+}: IFormFieldGroup) {
   return (
     <div
       className={cn(
