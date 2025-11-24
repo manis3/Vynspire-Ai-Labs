@@ -24,7 +24,7 @@ export function Modal({
 
       <DialogContent
         className={cn(
-          "sm:max-w-[425px] bg-white border border-border-snowFlake rounded-[20px] px-0 z-50",
+          " bg-white border border-border-snowFlake rounded-[20px] px-0 z-50",
           className,
         )}
       >
