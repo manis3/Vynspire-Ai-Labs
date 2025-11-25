@@ -12,7 +12,7 @@ export const useAppStore = create<StoreState>()(
       },
     }),
     {
-      name: "IDD",
+      name: "Vynspire-ai",
       partialize: (state) =>
         Object.fromEntries(
           Object.entries(state).filter(([key]) => !["actions"].includes(key)),

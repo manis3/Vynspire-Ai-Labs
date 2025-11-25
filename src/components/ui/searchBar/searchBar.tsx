@@ -9,7 +9,7 @@ export function SearchBar({
   handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   return (
-    <div className="relative w-[400px] h-12">
+    <div className="relative w-full lg:w-[400px] h-12">
       <Input
         type="text"
         value={searchTerm}

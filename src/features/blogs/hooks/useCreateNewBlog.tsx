@@ -16,8 +16,7 @@ export default function useCreateNewBlog(closeModal: () => void) {
   const { createNewBlog, isNewBlogBeingCreated } = useCreateBlog();
   const { blogId } = useAppStore((store) => store);
   const { setBlogId } = useAppStore((store) => store.actions);
-  const { blogDetails, isBlogsDetailsBeingFetched } =
-    useGetBlogsDetails(blogId);
+  const { blogDetails } = useGetBlogsDetails(blogId);
   const { updateBlog, isBlogBeingUpdated } = useUpdateBlog();
 
   const {
@@ -73,5 +72,6 @@ export default function useCreateNewBlog(closeModal: () => void) {
     isNewBlogBeingCreated,
     blogId,
     handleCloseModal,
+    isBlogBeingUpdated,
   };
 }

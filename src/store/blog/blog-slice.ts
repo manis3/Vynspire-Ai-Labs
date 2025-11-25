@@ -6,6 +6,7 @@ import { StateCreator } from "zustand";
 
 const initialState: IBlogSliceInitialState = {
   blogId: "",
+  selectedFilter: "All",
 };
 
 export const createBlogStoreSlice: StateCreator<IBLogStoreSlice> = (set) => ({
@@ -13,6 +14,9 @@ export const createBlogStoreSlice: StateCreator<IBLogStoreSlice> = (set) => ({
   actions: {
     setBlogId: (blogId: string | number) => {
       set({ blogId });
+    },
+    setSelectedFilter: (selectedFilter: string) => {
+      set({ selectedFilter });
     },
   },
 });

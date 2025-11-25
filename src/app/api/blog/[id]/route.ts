@@ -60,8 +60,6 @@ export async function GET(
     const { id } = await context.params;
     const blogId = Number(id);
 
-    console.log(blogId, "-----------------------------");
-
     const blogs = await readBlogs();
     const blog = blogs.find((b: any) => b.id === blogId);
 
@@ -82,33 +80,34 @@ export async function GET(
   }
 }
 
-export async function DELETE(request: NextRequest) {
+export async function DELETE(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> },
+) {
   try {
-    const url = new URL(request.url);
-    const idParam = url.searchParams.get("id");
-    if (!idParam) {
-      return NextResponse.json(
-        { success: false, message: "Blog id is required." },
-        { status: 400 },
-      );
-    }
-    const id = Number(idParam);
+    const { id } = await context.params;
+    const blogId = Number(id);
 
     let blogs = await readBlogs();
-    const exists = blogs.some((b: any) => b.id === id);
+
+    const exists = blogs.some((b: any) => b.id === blogId);
+
     if (!exists) {
       return NextResponse.json(
         { success: false, message: "Blog not found." },
         { status: 404 },
       );
     }
-    blogs = blogs.filter((b: any) => b.id !== id);
+
+    blogs = blogs.filter((b: any) => b.id !== blogId);
     await writeBlogs(blogs);
+
     return NextResponse.json({
       success: true,
       message: "Blog deleted successfully.",
     });
-  } catch {
+  } catch (error) {
+    console.error("Error during DELETE:", error);
     return NextResponse.json(
       { success: false, message: "Failed to delete blog." },
       { status: 500 },

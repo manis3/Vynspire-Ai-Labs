@@ -1,30 +1,37 @@
+import useDeleteBlog from "@/api-services/mutations/blog/useDeleteBlog";
 import useGetBlogs from "@/api-services/queries/useGetBlogs";
 import { tagsOptions } from "@/consts/tagsConsts";
 import useDialog from "@/hooks/useDialog";
 import useSearchBar from "@/hooks/useSearchBar";
 import { useAppStore } from "@/store/store";
 import { getFilteredBlogData } from "@/utils/searchBlog";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 export default function useBlogs() {
-  const [selectedTag, setSelectedTag] = useState<string>(tagsOptions[0]);
   const { searchTerm, handleSearch } = useSearchBar();
   const { isOpen, openModal, closeModal } = useDialog();
   const { blogsLists, isBlogsBeingFetch } = useGetBlogs();
-  const { setBlogId } = useAppStore((store) => store.actions);
-  const { blogId } = useAppStore((store) => store);
+  const { setBlogId, setSelectedFilter } = useAppStore(
+    (store) => store.actions,
+  );
+  const { selectedFilter } = useAppStore((store) => store);
+  const { deleteBlog, isDeletingBlog } = useDeleteBlog();
 
   const handleTagSelect = (value: string) => {
-    setSelectedTag(value);
+    setSelectedFilter(value);
   };
 
   const filteredBlogs = useMemo(() => {
-    return getFilteredBlogData(blogsLists, searchTerm, selectedTag);
-  }, [blogsLists, searchTerm, selectedTag]);
+    return getFilteredBlogData(blogsLists, searchTerm, selectedFilter);
+  }, [blogsLists, searchTerm, selectedFilter]);
 
   const handleEdit = (id: string | number) => {
     setBlogId(id);
     openModal();
+  };
+
+  const handleDelete = async (id: string | number) => {
+    await deleteBlog(id);
   };
 
   return {
@@ -34,10 +41,12 @@ export default function useBlogs() {
     searchTerm,
     handleSearch,
     handleTagSelect,
-    selectedTag,
+    selectedTag: selectedFilter,
     tagsOptions,
     filteredBlogs,
     isBlogsBeingFetch,
     handleEdit,
+    handleDelete,
+    isDeletingBlog,
   };
 }

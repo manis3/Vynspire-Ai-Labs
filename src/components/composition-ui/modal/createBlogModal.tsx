@@ -33,6 +33,7 @@ export default function CreateBlogModal({
     isNewBlogBeingCreated,
     blogId,
     handleCloseModal,
+    isBlogBeingUpdated,
   } = useCreateNewBlog(closeModal);
   const options = tagOptions.map((tag) => ({ label: tag, value: tag }));
 
@@ -134,7 +135,7 @@ export default function CreateBlogModal({
               type={"submit"}
               size={"lg"}
               buttonTextClassName="text-text"
-              loading={isNewBlogBeingCreated}
+              loading={isNewBlogBeingCreated || isBlogBeingUpdated}
             >
               {blogId ? "Update" : "Create"}
             </ButtonWithLoader>

@@ -20,14 +20,16 @@ export default function Blogs() {
     filteredBlogs,
     isBlogsBeingFetch,
     handleEdit,
+    handleDelete,
+    isDeletingBlog,
   } = useBlogs();
   if (isBlogsBeingFetch) return <Loader />;
   return (
     <div>
       <h1 className="text-2xl font-bold font-sourceSansPro">Blogs</h1>
-      <div className="flex justify-between mt-8 px-8">
+      <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between mt-8 px-8">
         <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
-        <div className="flex gap-6">
+        <div className="flex flex-col sm:flex-row gap-4  sm:gap-6 justify-end">
           <Dropdown
             options={tagsOptions}
             selectedFilter={selectedTag}
@@ -46,6 +48,8 @@ export default function Blogs() {
             content={content}
             tags={tags}
             onEdit={handleEdit}
+            onDelete={handleDelete}
+            isLoading={isDeletingBlog}
             id={id}
           />
         ))}

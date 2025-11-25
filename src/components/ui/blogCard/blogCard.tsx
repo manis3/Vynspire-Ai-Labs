@@ -21,6 +21,7 @@ export default function BlogCard({
   onEdit,
   onDelete,
   id,
+  isLoading,
 }: BlogCardProps) {
   const handleEdit = () => {
     if (onEdit) {
@@ -65,8 +66,9 @@ export default function BlogCard({
         </ButtonWithLoader>
         <ButtonWithLoader
           size={"lg"}
-          onClick={onDelete}
+          onClick={() => onDelete?.(id)}
           className="inline-flex text-white"
+          loading={isLoading}
         >
           <TrashIcon />
         </ButtonWithLoader>

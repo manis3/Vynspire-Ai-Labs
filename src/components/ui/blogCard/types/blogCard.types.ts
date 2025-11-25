@@ -4,5 +4,6 @@ export interface BlogCardProps {
   content: string;
   tags?: string[];
   onEdit: (id: string | number) => void;
-  onDelete?: () => void;
+  onDelete?: (id: string | number) => void;
+  isLoading?: boolean;
 }
