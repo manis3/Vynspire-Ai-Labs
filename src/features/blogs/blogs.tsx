@@ -5,6 +5,7 @@ import Dropdown from "@/components/ui/dropdown/dropdown";
 import useBlogs from "./hooks/useBlogs";
 import { SearchBar } from "@/components/ui/searchBar/searchBar";
 import CreateBlogModal from "@/components/composition-ui/createBlog/createBlogModal";
+import { Loader } from "@/components/ui/loader";
 
 export default function Blogs() {
   const {
@@ -17,7 +18,9 @@ export default function Blogs() {
     handleTagSelect,
     tagsOptions,
     filteredBlogs,
+    isBlogsBeingFetch,
   } = useBlogs();
+  if (isBlogsBeingFetch) return <Loader />;
   return (
     <div>
       <h1 className="text-2xl font-bold font-sourceSansPro">Blogs</h1>
@@ -39,7 +42,11 @@ export default function Blogs() {
           <BlogCard key={index} title={title} content={content} tags={tags} />
         ))}
       </div>
-      <CreateBlogModal isOpen={isOpen} closeModal={closeModal} />
+      <CreateBlogModal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        tagOptions={tagsOptions}
+      />
     </div>
   );
 }

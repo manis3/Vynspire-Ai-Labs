@@ -11,7 +11,7 @@ export const getFilteredBlogData = (
 ): IBlogData[] => {
   const lowerSearch = searchTerm.toLowerCase();
 
-  return blogData.filter((blog) => {
+  return blogData?.filter((blog) => {
     const matchesSearch =
       blog.title.toLowerCase().includes(lowerSearch) ||
       blog.content.toLowerCase().includes(lowerSearch) ||

@@ -1,16 +1,38 @@
-import { Input } from "@/components/ui/input";
+"use client";
+import { InputWithErrorMessage } from "@/components/ui/input";
 import { Modal } from "@/components/ui/modal/default";
 import { RichTextEditor } from "@/components/ui/textEditor/richTextEditor";
-import { useState } from "react";
+import Select from "react-select";
+import useCreateNewBlog from "@/features/blogs/hooks/useCreateNewBlog";
+import { Controller } from "react-hook-form";
+import { ButtonWithLoader } from "@/components/ui/button";
+
+function Title({ title }: { title: string }) {
+  return (
+    <label htmlFor="title" className="text-text-Primary text-xl">
+      {title}
+    </label>
+  );
+}
 
 export default function CreateBlogModal({
   isOpen,
   closeModal,
+  tagOptions,
 }: {
   isOpen: boolean;
   closeModal: () => void;
+  tagOptions: string[];
 }) {
-  const [content, setContent] = useState("");
+  const {
+    handleSubmit,
+    onSubmit,
+    register,
+    control,
+    errors,
+    isNewBlogBeingCreated,
+  } = useCreateNewBlog(closeModal);
+  const options = tagOptions.map((tag) => ({ label: tag, value: tag }));
 
   return (
     <Modal
@@ -19,16 +41,80 @@ export default function CreateBlogModal({
       title="Create New Blog"
       className="w-[600px]"
     >
-      <div className="p-4">
-        <label htmlFor="title" className="text-text-Primary text-xl">
-          Title
-        </label>
-        <Input />
-        <div>
-          <p className="text-text-Primary text-xl py-4">Content</p>
-          <RichTextEditor value={content} onChange={setContent} />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col items-center justify-center gap-"
+      >
+        <div className="p-6 flex flex-col gap-6">
+          <InputWithErrorMessage
+            label="Title"
+            labelClassName="text-text-Primary text-xl font-roboto placeholder:text-text-secondary "
+            name={"title"}
+            className="rounded-sm "
+            error={errors.title}
+            register={register}
+            placeholder="Enter ..."
+            type="text"
+          />
+          <div className="flex flex-col space-y-4">
+            <Title title="Content" />
+            <Controller
+              name="content"
+              control={control}
+              render={({ field }) => (
+                <RichTextEditor value={field.value} onChange={field.onChange} />
+              )}
+            />
+            {errors.content && (
+              <p className="text-error text-sm mt-1">
+                {errors.content.message}
+              </p>
+            )}
+          </div>
+          <div className="flex flex-col space-y-2">
+            <Title title="Tags" />
+            <Controller
+              name="tags"
+              control={control}
+              render={({ field }) => (
+                <Select
+                  {...field}
+                  options={options}
+                  isMulti
+                  closeMenuOnSelect={false}
+                  placeholder="Select tags..."
+                  classNamePrefix="react-select"
+                  onChange={(value) => field.onChange(value)}
+                  value={field.value}
+                  styles={{
+                    control: (provided, state) => ({
+                      ...provided,
+                      color: "black",
+                      width: "100%",
+                    }),
+                    option: (provided, state) => ({
+                      ...provided,
+                      color: state?.isSelected ? "#2c3a77" : "#000000",
+                      backgroundColor: state.isSelected ? "#00AEEC" : "#ffffff",
+                    }),
+                  }}
+                />
+              )}
+            />
+            {errors.tags && (
+              <p className="text-error text-sm mt-1">{errors.tags.message}</p>
+            )}
+          </div>
+          <ButtonWithLoader
+            buttonWithLoaderClassName="!w-full rounded-sm font-inter font-medium  text-sm  leading-6"
+            type={"submit"}
+            buttonTextClassName="text-text"
+            loading={isNewBlogBeingCreated}
+          >
+            Create
+          </ButtonWithLoader>
         </div>
-      </div>
+      </form>
     </Modal>
   );
 }

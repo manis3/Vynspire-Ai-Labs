@@ -29,7 +29,6 @@
 
   --background: var(--white);
   --foreground: var(--ghost-white);
-
 }
 
 .dark {
@@ -50,12 +49,9 @@
 
   --background: var(--dark);
   --foreground: var(--ghost-white);
-
 }
 
-
 @theme {
-
   --font-sourceSansPro: var(--font-sourceSansPro);
   --font-nunito: var(--font-nunito);
   --font-roboto: var(--font-roboto-flex);
@@ -64,13 +60,13 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
-  --success: var(--light-green);
-  --error: var(--crimson);
-  --warning: var(--warning-color);
+  --color-success: var(--light-green);
+  --color-error: var(--crimson);
+  --color-warning: var(--warning-color);
 
   --color-buttonPrimary: var(--blue);
   --color-buttonOutlineBorder: var(--blue);
-  
+
   --color-text: var(--white);
   --color-text-Primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
@@ -83,7 +79,6 @@
   --color-border-error: var(--crimson);
   --color-border-snowFlake: var(--snow-flake-color);
 
-
   --color-searchInputBorder: var(--off-white);
 }
 
@@ -94,4 +89,15 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.react-select__control {
+  padding-block: 8px;
+  border-radius: 4px;
+}
+.react-select__value-container {
+  padding-left: 8px;
+}
+ .react-select__option{
+  color: var(--text-text-Primary);
 }

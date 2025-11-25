@@ -34,7 +34,10 @@ export default function BlogCard({
       </h2>
 
       <div className="flex flex-col flex-1 space-y-5">
-        <p className="flex-1 text-sm text-gray-600 font-roboto">{content}</p>
+        <p
+          className="flex-1 text-sm text-gray-600 font-roboto"
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></p>
 
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
