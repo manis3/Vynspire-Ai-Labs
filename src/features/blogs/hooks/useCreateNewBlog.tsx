@@ -4,7 +4,7 @@ import {
   createBlogdefaultValues,
   CreateBlogFormSchema,
   createBlogSchema,
-} from "./blog/newBlogSchema";
+} from "../../../schema/blog/newBlogSchema";
 import useCreateBlog from "@/api-services/mutations/blog/useCreateBlog";
 import { reverseTransformTags, transformTags } from "@/utils/transformTags";
 import { useEffect } from "react";
@@ -48,6 +48,11 @@ export default function useCreateNewBlog(closeModal: () => void) {
     } else {
       await createNewBlog(payload);
     }
+    reset({
+      title: "",
+      content: "",
+      tags: [],
+    });
     closeModal();
   };
 

@@ -34,7 +34,7 @@ const Dropdown = React.forwardRef<HTMLButtonElement, DropdownProps>(
         <DropdownMenu.Trigger
           ref={ref}
           className={cn(
-            "flex items-center justify-center  rounded-md bg-white shadow-sm hover:bg-gray-200 focus:outline-none",
+            "flex items-center justify-center  rounded-md bg-background border border-border-lavender shadow-sm focus:outline-none cursor-pointer",
             dropdownTriggerClassName,
           )}
           disabled={disabled}
@@ -51,7 +51,7 @@ const Dropdown = React.forwardRef<HTMLButtonElement, DropdownProps>(
           <DropdownMenu.Content
             align="start"
             className={cn(
-              "min-w-[150px] mt-2 rounded-md bg-white shadow-lg max-h-[300px] overflow-y-auto scrollbar-none",
+              "min-w-[150px] mt-2 rounded-md bg-foreground shadow-lg max-h-[300px] overflow-y-auto scrollbar-none",
               "p-1 text-sm text-gray-700",
             )}
           >
@@ -60,7 +60,7 @@ const Dropdown = React.forwardRef<HTMLButtonElement, DropdownProps>(
                 disabled={isDisabledFirstItem && index === 0}
                 key={option}
                 className={cn(
-                  "cursor-pointer select-none rounded-md px-3 py-2 bg-transparent font-roboto ring-0 focus:outline-none",
+                  "cursor-pointer select-none rounded-md px-3 py-2 bg-transparent text-text-Primary font-roboto ring-0 focus:outline-none",
                   {
                     "bg-foreground hover:rounded-none":
                       selectedFilterValue?.includes(option),

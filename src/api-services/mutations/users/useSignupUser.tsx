@@ -20,7 +20,7 @@ export default function useSignupNewUser() {
     onSuccess: (res) => {
       if (res) {
         //@ts-expect-error message type is unknown
-        toast.success(res?.message);
+        toast.success(res?.data?.message);
         router.push(PUBLIC_ROUTE.LOGIN);
       }
     },

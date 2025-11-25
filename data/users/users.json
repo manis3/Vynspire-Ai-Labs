@@ -6,5 +6,29 @@
     "password": "$2b$10$aPdLWVB1wqWhP9t2LccjeOdGahmfvmxdMoKgvUY8Vph4smk7OAiHa",
     "phoneNumber": "1234568900",
     "address": "Bhaktapur"
+  },
+  {
+    "id": 1764058917261,
+    "name": "test test",
+    "email": "test@gmail.com",
+    "password": "$2b$10$ASYaSJbEAG085cqI65k1G.OyHzoqvOYqy3JjImAAdO/li3wjPJaWi",
+    "phoneNumber": "1234567890",
+    "address": "Bhaktapur"
+  },
+  {
+    "id": 1764059224256,
+    "name": "sadf asdf",
+    "email": "admin@admin.com",
+    "password": "$2b$10$6ChY.6yHGdpkWrmXca8S5erW5Ljk9Gqb0jaLosaECaR6O6.GAQoB6",
+    "phoneNumber": "1234567890",
+    "address": "asdfasdfasd"
+  },
+  {
+    "id": 1764059276519,
+    "name": "山田 様",
+    "email": "test1@admin.com",
+    "password": "$2b$10$UyvV9P5CcJX.eQDWJ0.0AOSWkQszvC5nwpQ050DdWRBErmnpNg95S",
+    "phoneNumber": "1234567890",
+    "address": "東京都渋谷区渋谷1-2-3"
   }
 ]

@@ -41,7 +41,7 @@ export default function CreateBlogModal({
     <Modal
       isOpen={isOpen}
       closeModal={handleCloseModal}
-      title="Create New Blog"
+      title={blogId ? "Update Blogs" : "Create New Blog"}
       className="w-[600px]"
     >
       <form
@@ -99,6 +99,7 @@ export default function CreateBlogModal({
                     styles={{
                       control: (provided, state) => ({
                         ...provided,
+                        backgroundColor: "var(--color-background)",
                         color: "black",
                         width: "100%",
                       }),

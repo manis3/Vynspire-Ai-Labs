@@ -92,12 +92,25 @@
 }
 
 .react-select__control {
-  padding-block: 8px;
+  padding-block: 4px;
   border-radius: 4px;
+  background-color: var(--color-background);
 }
 .react-select__value-container {
   padding-left: 8px;
 }
  .react-select__option{
   color: var(--text-text-Primary);
+}
+
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    appearance: textfield;
+  }
 }

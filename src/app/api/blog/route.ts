@@ -31,7 +31,10 @@ export async function POST(request: NextRequest) {
     newBlog.id = Date.now();
     blogs.push(newBlog);
     await fs.writeFile(filePath, JSON.stringify(blogs, null, 2));
-    return NextResponse.json({ success: true, data: newBlog }, { status: 201 });
+    return NextResponse.json(
+      { success: true, message: "Blog Created successfully!" },
+      { status: 201 },
+    );
   } catch (error) {
     return NextResponse.json(
       { success: false, message: "Failed to create blog." },

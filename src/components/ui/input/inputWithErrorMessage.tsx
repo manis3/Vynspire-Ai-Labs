@@ -31,7 +31,7 @@ export function InputWithErrorMessage({
         {...register(name, { valueAsNumber })}
         {...props}
         className={cn(
-          "text-base leading-5 font-roboto focus:outline-none focus:ring-0 text-text-Primary ",
+          "text-base leading-5 font-roboto focus:outline-none bg-background focus:ring-0 text-text-Primary ",
           {
             "border border-border-error focus:ring-0 focus:outline-none": error,
           },

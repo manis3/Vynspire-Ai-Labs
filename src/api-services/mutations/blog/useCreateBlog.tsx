@@ -1,5 +1,4 @@
 import { USE_GET_BLOGS } from "@/api-services/queries/useGetBlogs";
-import { CreateBlogFormSchema } from "@/features/blogs/hooks/blog/newBlogSchema";
 import useAxiosInstance from "@/services/useAxiosInstance";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -26,7 +25,7 @@ export default function useCreateBlog() {
       if (res) {
         queryClient.invalidateQueries({ queryKey: [USE_GET_BLOGS] });
         //@ts-expect-error message type is unknown
-        toast.success(res?.message);
+        toast.success(res?.data?.message);
       }
     },
     onError: (err) => {

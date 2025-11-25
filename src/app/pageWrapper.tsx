@@ -1,6 +1,6 @@
 "use client";
+import ThemeToggle from "@/components/ui/themeToogle/themeToogle";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "next-themes";
 import { ReactNode } from "react";
 
 export default function PageWrapper({ children }: { children: ReactNode }) {
@@ -8,6 +8,9 @@ export default function PageWrapper({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className="absolute top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
       <div className="w-full h-full max-h-screen overflow-scroll scrollbar-none bg-background text-text-Primary font-roboto">
         {children}
       </div>

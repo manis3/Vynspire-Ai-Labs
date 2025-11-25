@@ -19,3 +19,5 @@ export * from "./colorIcon";
 export * from "./quoteIcon";
 export * from "./headingIcon";
 export * from "./linkIcon";
+export * from "./sunIcon";
+export * from "./moonIcon";
