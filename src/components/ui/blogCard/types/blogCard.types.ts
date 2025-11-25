@@ -1,7 +1,8 @@
 export interface BlogCardProps {
+  id: string | number;
   title: string;
   content: string;
   tags?: string[];
-  onEdit?: () => void;
+  onEdit: (id: string | number) => void;
   onDelete?: () => void;
 }

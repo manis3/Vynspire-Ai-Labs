@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from "fs/promises";
 
-const filePath = path.join(process.cwd(), "data", "blogs", "blogs.json");
+const filePath = path.resolve(process.cwd(), "data/blogs/blogs.json");
 
 async function readBlogs() {
   const data = await fs.readFile(filePath, "utf-8");
@@ -15,14 +15,15 @@ async function writeBlogs(blogs: any[]) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const url = new URL(request.url);
-    const idParam = url.searchParams.get("id");
+    const segments = request.nextUrl.pathname.split("/");
+    const idParam = segments[segments.length - 1];
     if (!idParam) {
       return NextResponse.json(
         { success: false, message: "Blog id is required." },
         { status: 400 },
       );
     }
+
     const id = Number(idParam);
     const updates = await request.json();
 
@@ -42,9 +43,40 @@ export async function PUT(request: NextRequest) {
       data: blogs[index],
       message: "Blog updated successfully.",
     });
-  } catch {
+  } catch (err) {
+    console.error(err);
     return NextResponse.json(
       { success: false, message: "Failed to update blog." },
+      { status: 500 },
+    );
+  }
+}
+
+export async function GET(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> },
+) {
+  try {
+    const { id } = await context.params;
+    const blogId = Number(id);
+
+    console.log(blogId, "-----------------------------");
+
+    const blogs = await readBlogs();
+    const blog = blogs.find((b: any) => b.id === blogId);
+
+    if (!blog) {
+      return NextResponse.json(
+        { success: false, message: "Blog not found." },
+        { status: 404 },
+      );
+    }
+
+    return NextResponse.json({ success: true, data: blog });
+  } catch (e) {
+    console.error(e);
+    return NextResponse.json(
+      { success: false, message: "Failed to read blog." },
       { status: 500 },
     );
   }

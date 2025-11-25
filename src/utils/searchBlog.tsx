@@ -1,4 +1,5 @@
 interface IBlogData {
+  id: string | number;
   title: string;
   content: string;
   tags: string[];

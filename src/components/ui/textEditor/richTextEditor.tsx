@@ -58,7 +58,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
     immediatelyRender: false,
     extensions: [
       StarterKit,
-      CustomTextStyle, // only use custom extension here
+      CustomTextStyle,
       Underline,
       Color,
       Highlight,
@@ -170,7 +170,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
           <RedoIcon />
         </Button>
 
-        <select
+        {/* <select
           onChange={(e) => {
             const lvl = parseInt(e.target.value);
             if (lvl === 0) editor.chain().focus().setParagraph().run();
@@ -233,7 +233,7 @@ export function RichTextEditor({ value, onChange }: RichTextEditorProps) {
               {size}px
             </option>
           ))}
-        </select>
+        </select> */}
 
         <Button
           variant="ghost"

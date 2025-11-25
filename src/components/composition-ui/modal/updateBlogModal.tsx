@@ -15,7 +15,7 @@ function Title({ title }: { title: string }) {
   );
 }
 
-export default function CreateBlogModal({
+export default function BlogModal({
   isOpen,
   closeModal,
   tagOptions,

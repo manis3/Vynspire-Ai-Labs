@@ -26,7 +26,6 @@ export default function useCreateBlog() {
       if (res) {
         queryClient.invalidateQueries({ queryKey: [USE_GET_BLOGS] });
         //@ts-expect-error message type is unknown
-
         toast.success(res?.message);
       }
     },

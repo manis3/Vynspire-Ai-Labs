@@ -20,7 +20,14 @@ export default function BlogCard({
   tags = [],
   onEdit,
   onDelete,
+  id,
 }: BlogCardProps) {
+  const handleEdit = () => {
+    if (onEdit) {
+      console.log("this functio has been called");
+      onEdit(id);
+    }
+  };
   return (
     <Card
       colorScheme="secondary"
@@ -51,7 +58,7 @@ export default function BlogCard({
       <div className="w-full flex gap-3 pt-2  justify-end">
         <ButtonWithLoader
           size={"lg"}
-          onClick={onEdit}
+          onClick={handleEdit}
           className="inline-flex text-white"
         >
           <EditIcon />
