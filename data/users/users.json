@@ -30,5 +30,13 @@
     "password": "$2b$10$UyvV9P5CcJX.eQDWJ0.0AOSWkQszvC5nwpQ050DdWRBErmnpNg95S",
     "phoneNumber": "1234567890",
     "address": "東京都渋谷区渋谷1-2-3"
+  },
+  {
+    "id": 1764060643038,
+    "name": "asf asfd",
+    "email": "test3@gmail.com",
+    "password": "$2b$10$ecjCv/L6d/hazKbMoQ/Ftu0NKRPltkX3Iy2mlawK4380FtLKac1Ti",
+    "phoneNumber": "1234567890",
+    "address": "東京都渋谷区渋谷1-2-3"
   }
 ]
